@@ -35,3 +35,23 @@ plt.title("Sales Trend Over Time")
 plt.xlabel("Date")
 plt.ylabel("Sales")
 plt.show()
+
+#Scenario 2
+print("Roll no - 24BAD008")
+df = pd.read_csv("/content/diabetes.csv")
+
+df.info()
+df.describe()
+df.isnull().sum()
+
+plt.hist(df['Glucose'], bins=20)
+plt.title("Glucose Level Distribution")
+plt.xlabel("Glucose")
+plt.ylabel("Frequency")
+plt.show()
+
+plt.boxplot(df['Age'])
+plt.title("Age Distribution")
+plt.ylabel("Age")
+plt.show()
+
