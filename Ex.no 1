@@ -3,3 +3,35 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+#scenario 1
+print("Roll no - 24BAD008")
+df = pd.read_csv("/content/data.csv", encoding='latin1')
+
+df.head()
+df.tail()
+df.info()
+df.describe()
+
+print("Roll no - 24BAD008")
+df.isnull().sum()
+
+df['Sales'] = df['Quantity'] * df['UnitPrice']
+
+top_products = df.groupby('Description')['Sales'].sum().head(10)
+
+top_products.plot(kind='bar')
+plt.title("Top 10 Products by Sales")
+plt.xlabel("Product")
+plt.ylabel("Total Sales")
+plt.xticks(rotation=90)
+plt.show()
+
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+sales_over_time = df.groupby(df['InvoiceDate'].dt.date)['Sales'].sum()
+
+plt.plot(sales_over_time)
+plt.title("Sales Trend Over Time")
+plt.xlabel("Date")
+plt.ylabel("Sales")
+plt.show()
