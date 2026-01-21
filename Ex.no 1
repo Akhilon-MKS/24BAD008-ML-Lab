@@ -77,3 +77,22 @@ sns.heatmap(corr, annot=True)
 plt.title("Correlation Heatmap")
 plt.show()
 
+#Scenario 4 
+print("Roll no - 24BAD008")
+df = pd.read_csv("/content/marketing_campaign.csv", sep='\t')
+
+df.info()
+df.isnull().sum()
+
+df['Age'] = 2025 - df['Year_Birth']
+
+plt.hist(df['Age'], bins=20)
+plt.title("Customer Age Distribution")
+plt.xlabel("Age")
+plt.ylabel("Count")
+plt.show()
+
+plt.boxplot(df['Income'].dropna())
+plt.title("Income Distribution")
+plt.ylabel("Income")
+plt.show()
