@@ -55,3 +55,25 @@ plt.title("Age Distribution")
 plt.ylabel("Age")
 plt.show()
 
+#Scenario 3
+print("Roll no - 24BAD008")
+df = pd.read_csv("/content/Housing.csv")
+
+df.columns
+df.info()
+
+df.isnull().sum()
+
+plt.scatter(df['area'], df['price'])
+plt.xlabel("Area")
+plt.ylabel("Price")
+plt.title("Area vs Price")
+plt.show()
+
+numeric_df = df.select_dtypes(include=['int64', 'float64'])
+
+corr = numeric_df.corr()
+sns.heatmap(corr, annot=True)
+plt.title("Correlation Heatmap")
+plt.show()
+
